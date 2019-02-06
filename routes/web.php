@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+$router->get('/', 'WelcomeController@index');
+$router->get('events/{id}', 'EventsController@show');
+// mark "?" means that the variable is optional, its global value must be declared in controller
+$router->get('events/category/{category}/{subcategory?}', 'EventsController@category');
