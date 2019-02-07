@@ -1,4 +1,5 @@
 <!doctype html>
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -7,6 +8,11 @@
         <title>Welcome to HackerPair</title>
     </head>
     <body>
-        <h1>Welcome to HackerPair</h1>
+        <div>
+            @yield('content')
+        </div>
+        <div>
+            @yield('advertisement')
+        </div>
     </body>
 </html>

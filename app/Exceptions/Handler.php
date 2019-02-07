@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace latihan01\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -46,6 +46,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        error_log($exception);
+        if ($exception instanceof ModuleNotFoundException) {
+            return response()->view('errors.model_not_found', [], 404);
+        } else {
+            return parent::render($request, $exception);
+        }
     }
 }
